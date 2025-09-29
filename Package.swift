@@ -39,14 +39,14 @@ let package = Package(
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(
-      url: "https://github.com/firebase/abseil-cpp-SwiftPM.git",
-      branch: "main"
-    ),
-    .package(
-      url: "https://github.com/firebase/boringssl-SwiftPM.git",
-      "0.7.1"..<"0.8.0"
-    ),
+    // .package(
+    //   url: "https://github.com/firebase/abseil-cpp-SwiftPM.git",
+    //   branch: "main"
+    // ),
+    // .package(
+    //   url: "https://github.com/firebase/boringssl-SwiftPM.git",
+    //   "0.7.1"..<"0.8.0"
+    // ),
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -78,10 +78,10 @@ let package = Package(
       name: "ukey2",
       dependencies: [
         "protobuf",
-        .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
-        .product(
-          name: "openssl_grpc", package: "boringssl-SwiftPM",
-          moduleAliases: ["NearbySSL": "openssl_grpc"]),
+        // .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
+        // .product(
+        //   name: "openssl_grpc", package: "boringssl-SwiftPM",
+        //   moduleAliases: ["NearbySSL": "openssl_grpc"]),
       ],
       path: "third_party/ukey2",
       exclude: ["ukey2/src/main/cpp/src/securegcm/ukey2_shell.cc"],
@@ -230,7 +230,7 @@ let package = Package(
         "smhasher",
         "ukey2",
         "protobuf",
-        .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
+        // .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
       ],
       path: ".",
       exclude: [
