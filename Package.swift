@@ -74,53 +74,29 @@ let package = Package(
         .headerSearchPath("smhasher/src/")
       ]
     ),
-    // .target(
-    //   name: "ukey2",
-    //   dependencies: [
-    //     "protobuf",
-    //     // .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
-    //     .product(
-    //       name: "openssl_grpc", package: "boringssl-SwiftPM"//,
-    //       // moduleAliases: ["NearbySSL": "openssl_grpc"]),
-    //   ],
-    //   path: "third_party/ukey2",
-    //   exclude: ["ukey2/src/main/cpp/src/securegcm/ukey2_shell.cc"],
-    //   sources: [
-    //     "ukey2/src/securemessage/src/securemessage",
-    //     "ukey2/src/main/cpp/src/securegcm",
-    //     "compiled_proto",
-    //   ],
-    //   publicHeadersPath: "include",
-    //   cSettings: [
-    //     .headerSearchPath("ukey2/"),
-    //     .headerSearchPath("compiled_proto/"),
-    //     .headerSearchPath("compiled_proto/src/main/"),
-    //   ]
-    // ),
     .target(
-  name: "ukey2",
-  dependencies: [
-    "protobuf",
-    .product(
-      name: "openssl_grpc",
-      package: "boringssl-SwiftPM"
+      name: "ukey2",
+      dependencies: [
+        "protobuf",
+        // .product(name: "abseil", package: "abseil-cpp-SwiftPM"),
+        .product(
+          name: "openssl_grpc", package: "boringssl-SwiftPM"//,
+          // moduleAliases: ["NearbySSL": "openssl_grpc"]),
+      ],
+      path: "third_party/ukey2",
+      exclude: ["ukey2/src/main/cpp/src/securegcm/ukey2_shell.cc"],
+      sources: [
+        "ukey2/src/securemessage/src/securemessage",
+        "ukey2/src/main/cpp/src/securegcm",
+        "compiled_proto",
+      ],
+      publicHeadersPath: "include",
+      cSettings: [
+        .headerSearchPath("ukey2/"),
+        .headerSearchPath("compiled_proto/"),
+        .headerSearchPath("compiled_proto/src/main/"),
+      ]
     ),
-  ],
-  path: "third_party/ukey2",
-  exclude: ["ukey2/src/main/cpp/src/securegcm/ukey2_shell.cc"],
-  sources: [
-    "ukey2/src/securemessage/src/securemessage",
-    "ukey2/src/main/cpp/src/securegcm",
-    "compiled_proto",
-  ],
-  publicHeadersPath: "include",
-  cSettings: [
-    .headerSearchPath("ukey2/"),
-    .headerSearchPath("compiled_proto/"),
-    .headerSearchPath("compiled_proto/src/main/"),
-  ]
-),
-
     .target(
       name: "json",
       path: "third_party/json",
